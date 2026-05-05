@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Extractor de Ficha RIME</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Automatizaci&oacute;n de bit&aacute;cora</p>
+        <h1>Extractor de Ficha RIME - Excel</h1>
+      </div>
+      <span class="badge">GitHub Pages</span>
+    </header>
+
+    <main class="layout">
+      <section class="panel input-panel" aria-labelledby="files-title">
+        <h2 id="files-title">Archivos</h2>
+        <label class="file-drop" for="pdfFiles">
+          <span class="file-drop-title">Seleccionar PDFs</span>
+          <span class="file-drop-meta" id="fileDropMeta">Ning&uacute;n archivo seleccionado</span>
+        </label>
+        <input id="pdfFiles" class="visually-hidden" type="file" accept="application/pdf,.pdf" multiple>
+
+        <form id="metadataForm" class="file-form" hidden>
+          <div id="fileRows" class="file-rows"></div>
+          <div class="actions">
+            <button id="processButton" type="submit">Procesar PDFs</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="work-area" aria-live="polite">
+        <div id="messages" class="messages"></div>
+
+        <section id="controlSection" class="panel" hidden>
+          <h2>Control antes de extraer</h2>
+          <div class="table-wrap">
+            <table id="controlTable"></table>
+          </div>
+        </section>
+
+        <section id="resultsSection" class="panel" hidden>
+          <div class="results-head">
+            <div>
+              <h2>Vista previa</h2>
+              <p id="pageSummary" class="muted"></p>
+            </div>
+            <button id="downloadButton" type="button" disabled>Descargar Excel</button>
+          </div>
+          <div class="table-wrap">
+            <table id="previewTable"></table>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
