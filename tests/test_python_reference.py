@@ -5,7 +5,11 @@ import types
 from pathlib import Path
 
 fitz = types.ModuleType("fitz")
+pil = types.ModuleType("PIL")
+pil_image = types.ModuleType("PIL.Image")
 sys.modules["fitz"] = fitz
+sys.modules["PIL"] = pil
+sys.modules["PIL.Image"] = pil_image
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import rime_extractor
