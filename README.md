@@ -4,7 +4,10 @@ Pagina estatica para extraer datos de Fichas RIME desde PDFs y descargar un Exce
 
 ## Uso en GitHub Pages
 
-Publica el repositorio desde la rama `main` y la carpeta raiz. La pagina principal es `index.html`.
+El repositorio incluye un pipeline en `.github/workflows/deploy-pages.yml`.
+Cada push a `main` valida la logica, empaqueta `index.html`, `styles.css` y `app.js`, y despliega el sitio con GitHub Pages.
+
+En GitHub, configura `Settings > Pages > Build and deployment > Source` como `GitHub Actions`.
 
 ## Validacion local
 
